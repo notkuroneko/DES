@@ -91,15 +91,14 @@ void round_func(bool (&x)[64], bool y[48]){
 }
 
 void DES_alg(bool x[64], bool y[64], bool (&z)[64]){ //x is plaintext, y is key, z is cyphertext
-    bool perm_key[56]; bool temp; bool temp2; bool xor_key[48]; bool cypher[64];
+    bool perm_key[56]; bool temp; bool temp2; bool xor_key[48]; bool cypher[64]; 
     for (int i=0; i<56; i++) perm_key[i]=y[key_perm1[i]-1]; //key initial permutation
     for (int i=0; i<64; i++) cypher[i]=x[init_perm[i]-1]; //plaintext initial permutation
     for (int i=1; i<=16; i++) {
         keygen(perm_key,xor_key,i);
         round_func(cypher,xor_key);
     }
-    for (int i=0; i<64; i++) cout << cypher[i];
-    cout << endl;
+    for (int i=0; i<32; i++) {temp=cypher[i]; cypher[i]=cypher[i+32]; cypher[i+32]=temp;}
     for (int i=0; i<64; i++) z[i]=cypher[final_perm[i]-1];
 }
 
@@ -141,20 +140,20 @@ int main(){
     string s,key;
     cout << "Enter Plaintext (8 characters): ";
     cin >> s;
-    bool P[64] = {0,0,0,0, 0,0,0,1, 0,0,1,0, 0,0,1,1, 
+    bool P[64]; /*= {0,0,0,0, 0,0,0,1, 0,0,1,0, 0,0,1,1, 
                 0,1,0,0, 0,1,0,1, 0,1,1,0, 0,1,1,1, 
                 1,0,0,0, 1,0,0,1, 1,0,1,0, 1,0,1,1, 
-                1,1,0,0, 1,1,0,1, 1,1,1,0, 1,1,1,1};
+                1,1,0,0, 1,1,0,1, 1,1,1,0, 1,1,1,1};*/
     bool k[64];
     bool C[64];
-    //toBitstream(P,s);
+    toBitstream(P,s);
     key = readkey();
     toBitstream2(k,key);
-    //for (int i=0; i<64; i++) cout << k[i] << " ";
-    //cout << endl;
     DES_alg(P,k,C);
-    //for (int i=0; i<56; i++) cout << C[i]; 
-    //cout << endl;
+    ofstream f;
+    f.open("readme.md",  ios::out | ios::trunc);
+    for (int i=0; i<64; i++) {if (!(i%4)) f << " "; f << C[i];}
+    cout << "Cyphertext transfered to readme.md" << endl;
     return 0;
 }
 
