@@ -14,14 +14,15 @@ Step 1:
             61    53   45    37    29   21    13    5
             63    55   47    39    31   23    15    7
 - Key Initial Permutation: Create a 56-bit permutated stream from the following permutation table:
-            57   49    41   33    25    17    9
-             1   58    50   42    34    26   18
-            10    2    59   51    43    35   27
-            19   11     3   60    52    44   36
-            63   55    47   39    31    23   15
-             7   62    54   46    38    30   22
-            14    6    61   53    45    37   29
-            21   13     5   28    20    12    4
+&emsp;         57   49    41   33    25    17    9
+&emsp;          1   58    50   42    34    26   18
+&emsp;         10    2    59   51    43    35   27
+&emsp;         19   11     3   60    52    44   36
+&emsp;         63   55    47   39    31    23   15
+&emsp;          7   62    54   46    38    30   22
+&emsp;         14    6    61   53    45    37   29
+&emsp;         21   13     5   28    20    12    4
+  
 Step 2: Round function with 16 iterations
 - Key:
   + Divide the 56-bit keystream into 2 halves of 28 each
@@ -46,7 +47,6 @@ Step 2: Round function with 16 iterations
             20    21   22    23    24   25
             24    25   26    27    28   29
             28    29   30    31    32    1
-
   + 
             
   
