@@ -114,8 +114,7 @@ Step 2: Round function with 16 iterations
       2  1  14  7   4 10   8 13  15 12   9  0   3  5   6 11       
 </pre>
   + Bitwise XOR the 32-bit stream with the left half of the original stream.
-  + Create a new 64-bit stream that concatenates the right half of the original stream and the 32-bit stream obtained from the last step. <br/> <br/>
-Step 3: Swap the left half and the right half of the final 64-bit stream and create the 64-bit cyphertext stream from the following permutation table:
+  + Create a new 64-bit stream that concatenates the right half of the original stream and the 32-bit stream obtained from the last step. <br/> <br/> Step 3: Swap the left half and the right half of the final 64-bit stream and create the 64-bit cyphertext stream from the following permutation table:
 <pre>
             40     8   48    16    56   24    64   32
             39     7   47    15    55   23    63   31
