@@ -4,25 +4,28 @@
 
 # The Algorithm:
 Step 1: 
-- Plaintext Initial Permutation: Create a 64-bit permutated stream from the following permutation table:
-            58    50   42    34    26   18    10    2
-            60    52   44    36    28   20    12    4
-            62    54   46    38    30   22    14    6
-            64    56   48    40    32   24    16    8
-            57    49   41    33    25   17     9    1
-            59    51   43    35    27   19    11    3
-            61    53   45    37    29   21    13    5
-            63    55   47    39    31   23    15    7
+- Plaintext Initial Permutation: Create a 64-bit permutated stream from the following permutation table: <br/>
+<pre>
+            58    50   42    34    26   18    10    2 <br/>
+            60    52   44    36    28   20    12    4 <br/>
+            62    54   46    38    30   22    14    6 <br/>
+            64    56   48    40    32   24    16    8 <br/>
+            57    49   41    33    25   17     9    1 <br/>
+            59    51   43    35    27   19    11    3 <br/>
+            61    53   45    37    29   21    13    5 <br/>
+            63    55   47    39    31   23    15    7 <br/>
+</pre>
 - Key Initial Permutation: Create a 56-bit permutated stream from the following permutation table: <br/>
-&nbsp;         57   49    41   33    25    17    9 <br/>
-&nbsp;          1   58    50   42    34    26   18 <br/>
-&nbsp;         10    2    59   51    43    35   27 <br/>
-&nbsp;         19   11     3   60    52    44   36 <br/>
-&nbsp;         63   55    47   39    31    23   15 <br/>
-&nbsp;          7   62    54   46    38    30   22 <br/>
-&nbsp;         14    6    61   53    45    37   29 <br/>
-&nbsp;         21   13     5   28    20    12    4 <br/>
-  
+<pre>
+            57   49    41   33    25    17    9 <br/>
+             1   58    50   42    34    26   18 <br/>
+            10    2    59   51    43    35   27 <br/>
+            19   11     3   60    52    44   36 <br/>
+            63   55    47   39    31    23   15 <br/>
+             7   62    54   46    38    30   22 <br/>
+            14    6    61   53    45    37   29 <br/>
+            21   13     5   28    20    12    4 <br/>
+</pre>
 Step 2: Round function with 16 iterations
 - Key:
   + Divide the 56-bit keystream into 2 halves of 28 each
