@@ -134,12 +134,12 @@ Step 3: <br/> Swap the left half and the right half of the final 64-bit stream a
 </pre>
 
 # Decryption Algorithm (idea only)
-Input: 64-bit Cyphertext, 64-bit Key
-Output: 64-bit Plaintext
-Step 1: 
+Input: 64-bit Cyphertext, 64-bit Key <br/>
+Output: 64-bit Plaintext <br/>
+Step 1: <br/>
 - Create a 64-bit stream from the indexes of the final permutation table an swap the left half with the right half of that stream.
 - Repeat Key Initial Permutation
-Step 2: Reverse Round Function with 16 iterations
+Step 2: Reverse Round Function with 16 iterations <br/>
 - Key:
 + Divide the 56-bit key into 2 halves of 28 each
 + Shift each half to the right, 1 bit for the 1st, 7nd, 15th, 16th iteration, and 2 bits for the remaining iterations.
@@ -148,7 +148,7 @@ Step 2: Reverse Round Function with 16 iterations
 + Divide the cyphertext stream into 2 halves of 32 each
 + Create a 48-bit stream of the left half from the P-Expansion Box and bitwise XOR it with the 48-bit keystream.
 + Repeat the S-box step to obtain the 32-bit stream and bitwise XOR it with the right half.
-+ Create a 64-bit stream from the 32-bit stream from the last step and the left half, and permute it with the indexes of the Straight-P Box.
++ Create a 64-bit stream from the 32-bit stream from the last step and the left half, and permute it with the indexes of the Straight-P Box. <br/>
 Step 3: Create the 64-bit plaintext stream from the indexes of the plaintext initial permutation table.
 
 # Original Source
