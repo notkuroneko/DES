@@ -3,6 +3,8 @@
 - Output: 64-bit Cyphertext
 
 # The Algorithm:
+![The overall algorithm](https://github.com/notkuroneko/DES/assets/133151430/a67ed51c-72a6-419f-bf4f-6c3183af9dbc)
+
 Step 1: 
 - Plaintext Initial Permutation: Create a 64-bit permutated stream from the following permutation table: 
 <pre>
@@ -28,6 +30,8 @@ Step 1:
 </pre>
 Step 2: Round function with 16 iterations
 - Key:
+![Keystream generation per iteration](https://github.com/notkuroneko/DES/assets/133151430/f60fffa9-26c5-41a8-8d24-5c62ac941cab)
+
   + Divide the 56-bit keystream into 2 halves of 28 each
   + Shift each half to the left, 1 bit for the 1st, 2nd, 9th, 16th iteration, and 2 bits for the remaining iterations.
   + Create a 48-bit keystream from the following permutation table:
@@ -41,7 +45,9 @@ Step 2: Round function with 16 iterations
             44    49   39    56    34   53
             46    42   50    36    29   32
 </pre>
-- Plaintext:
+- Cyphertext Stream:
+![An iteration of the round function](https://github.com/notkuroneko/DES/assets/133151430/fa0072ea-4135-4b4a-a2c3-a78d79b905a1)
+
   + Divide the 64-bit plaintext stream into 2 halves of 32 each
   + Create a 48-bit permutated stream of the right half from the following permutation table:
 <pre>
@@ -55,7 +61,7 @@ Step 2: Round function with 16 iterations
             28    29   30    31    32    1
 </pre>
   + Bitwise XOR the 48-bit permutated stream with the 48-bit keystream
-  + Divide the new stream into 8 streams of 6 each. For every 6 bits, take the first bit and the last bit and convert into decimal to get the row index, and take the remaining bits and convert into decimal to get the column index. Obtain the value from the indexes and convert into binary. Use the S(i) table for the i-th stream and form a 32-bit stream from these tables:
+  + Divide the new stream into 8 streams of 6 each. For every 6 bits, take the first bit and the last bit and convert into decimal to get the row index, and take the remaining bits and convert into decimal to get the column index. Obtain the value in the S-box from the indexes and convert into binary. Use the S(i)-box for the i-th stream and form a 32-bit stream from these tables:
 <pre>
                              S1
 
@@ -113,6 +119,8 @@ Step 2: Round function with 16 iterations
       7 11   4  1   9 12  14  2   0  6  10 13  15  3   5  8
       2  1  14  7   4 10   8 13  15 12   9  0   3  5   6 11       
 </pre>
+![S-box rule](https://github.com/notkuroneko/DES/assets/133151430/5db1bd17-9d11-40bd-8167-e534d3649ee8)
+
   + Bitwise XOR the 32-bit stream with the left half of the original stream.
   + Create a new 64-bit stream that concatenates the right half of the original stream and the 32-bit stream obtained from the last step. <br/><br/>
 Step 3: <br/> Swap the left half and the right half of the final 64-bit stream and create the 64-bit cyphertext stream from the following permutation table:
