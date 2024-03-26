@@ -29,9 +29,8 @@ Step 1:
             21   13     5   28    20    12    4 
 </pre>
 Step 2: Round function with 16 iterations
-- Key:
+- Key: <br/>
 ![Keystream generation per iteration](https://github.com/notkuroneko/DES/assets/133151430/f60fffa9-26c5-41a8-8d24-5c62ac941cab)
-
   + Divide the 56-bit keystream into 2 halves of 28 each
   + Shift each half to the left, 1 bit for the 1st, 2nd, 9th, 16th iteration, and 2 bits for the remaining iterations.
   + Create a 48-bit keystream from the following permutation table:
@@ -45,9 +44,8 @@ Step 2: Round function with 16 iterations
             44    49   39    56    34   53
             46    42   50    36    29   32
 </pre>
-- Cyphertext Stream:
+- Cyphertext Stream: <br/>
 ![An iteration of the round function](https://github.com/notkuroneko/DES/assets/133151430/fa0072ea-4135-4b4a-a2c3-a78d79b905a1)
-
   + Divide the 64-bit plaintext stream into 2 halves of 32 each
   + Create a 48-bit permutated stream of the right half from the following permutation table:
 <pre>
