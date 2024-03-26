@@ -151,9 +151,9 @@ int main(){
     toBitstream2(k,key);
     DES_alg(P,k,C);
     ofstream f;
-    f.open("readme.md",  ios::out | ios::trunc);
+    f.open("DES_output",  ios::out | ios::trunc);
     for (int i=0; i<64; i++) {if (!(i%4)) f << " "; f << C[i];}
-    cout << "Cyphertext transfered to readme.md" << endl;
+    cout << "Cyphertext transfered to DES_output.txt" << endl;
     return 0;
 }
 
