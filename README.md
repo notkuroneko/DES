@@ -151,4 +151,5 @@ Step 2: Reverse Round Function with 16 iterations
 + Create a 64-bit stream from the 32-bit stream from the last step and the left half, and permute it with the indexes of the Straight-P Box.
 Step 3: Create the 64-bit plaintext stream from the indexes of the plaintext initial permutation table.
 
-Original Source: https://page.math.tu-berlin.de/~kant/teaching/hess/krypto-ws2006/des.htm
+# Original Source
+https://page.math.tu-berlin.de/~kant/teaching/hess/krypto-ws2006/des.htm
