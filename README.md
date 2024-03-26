@@ -148,6 +148,6 @@ Step 2: Reverse Round Function with 16 iterations <br/>
   + Divide the cyphertext stream into 2 halves of 32 each
   + Create a 48-bit stream of the left half from the P-Expansion Box and bitwise XOR it with the 48-bit keystream.
   + Repeat the S-box step to obtain the 32-bit stream and bitwise XOR it with the right half. <br/> <br/>
-  Step 3: Create the 64-bit plaintext stream from the indexes of the plaintext initial permutation table.
+Step 3: Create the 64-bit plaintext stream from the indexes of the plaintext initial permutation table.
 # Original Source
 https://page.math.tu-berlin.de/~kant/teaching/hess/krypto-ws2006/des.htm
